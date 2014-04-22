@@ -67,7 +67,7 @@ namespace VierOpEenRij
 			punten = (TelPunten(celin, directions.A) + TelPunten(celin, directions.B) - 1);
 
 			winContainer.Add(celin);
-			if (punten == AANTAL_OP_RIJ) {
+			if (punten >= AANTAL_OP_RIJ) {
 				TekenGewonnen(winContainer);
 			}
 			winContainer.Clear();
