@@ -45,26 +45,12 @@ namespace VierOpEenRij
 		private Cel[,] celContainer = new Cel[RIJEN,KOLOMMEN]; 
 		private List<Cel> winContainer = new List<Cel>(); 
 		private HitBox[] colBoxContainer = new HitBox[KOLOMMEN];
-
-		public Directions horizontaal = new Directions(
-			new Direction( 1, 0), 
-			new Direction(-1, 0)
-		);
-
-		public Directions verticaal = new Directions(
-			new Direction( 0, 1), 
-			new Direction( 0,-1)
-		);
-
-		public Directions diagonaalLinks = new Directions(
-			new Direction( 1, 1), 
-			new Direction(-1,-1)
-		);
-
-		public Directions diagonaalRechts = new Directions(
-			new Direction( 1,-1), 
-			new Direction(-1, 1)
-		);
+		private Directions[] directionsContainer = { 
+			new Directions( new Direction( 1, 0), new Direction(-1, 0) ),
+			new Directions( new Direction( 0, 1), new Direction( 0,-1) ),
+			new Directions( new Direction( 1, 1), new Direction(-1,-1) ),
+			new Directions( new Direction( 1,-1), new Direction(-1, 1) ),
+		};
 
 		public Spelbord() { this.Loaded += Init; }
 
@@ -148,10 +134,8 @@ namespace VierOpEenRij
 
 		private void CelCheck(Cel cel)
 		{
-			SameSeek(cel, diagonaalLinks);
-			SameSeek(cel, diagonaalRechts);
-			SameSeek(cel, horizontaal);
-			SameSeek(cel, verticaal);
+			foreach (Directions directions in directionsContainer)
+				SameSeek(cel, directions);
 		}
 
 		public void VulGridOp()
