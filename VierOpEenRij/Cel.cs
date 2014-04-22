@@ -18,12 +18,17 @@ namespace VierOpEenRij
 		public int colPos;
 		public int speler = -1;
 		public Boolean vrij = true;
-
+		private static Boolean INITIALIZED = false;
+		
 		static Color[] coloring = null;
 
 		public Cel(double width, double height, int rowPos, int colPos)
-		{	
-			coloring = InitKleuren();
+		{
+			if (!INITIALIZED)
+			{
+				coloring = InitKleuren();
+				INITIALIZED = true;
+			}
 			Border border = new Border()
 			{
 				BorderBrush = new SolidColorBrush(Colors.Black),
@@ -52,8 +57,8 @@ namespace VierOpEenRij
 				Color color = new Color();
 				color.A = 255;
 				color.G = Convert.ToByte(lead * i);
-				color.B = Convert.ToByte(rand.Next(0, 255));
-				color.R = Convert.ToByte(rand.Next(0, 255));
+				color.B = Convert.ToByte(rand.Next(0, 100));
+				color.R = Convert.ToByte(rand.Next(0, 100));
 				colors[i] = color;
 			}
 			return colors;
@@ -65,6 +70,5 @@ namespace VierOpEenRij
 			speler = huidigeSpeler;
 			this.Background = new SolidColorBrush(Cel.coloring[speler-1]);
 		}
-
 	}
 }

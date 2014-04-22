@@ -34,8 +34,8 @@ namespace VierOpEenRij
 
 	public class Spelbord : Canvas
 	{
-		public const int KOLOMMEN = 70;
-		public const int RIJEN = 50;
+		public const int KOLOMMEN = 20;
+		public const int RIJEN = 20;
 		public const int AANTAL_SPELERS = 5;
 		public const int AANTAL_OP_RIJ = 4;
 
