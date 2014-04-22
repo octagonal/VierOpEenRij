@@ -44,9 +44,8 @@ namespace VierOpEenRij
 
 		private static Color[] InitKleuren()
 		{
-			Color[] colors = new Color[2];
+			Color[] colors = new Color[Spelbord.AANTAL_SPELERS];
 			Random rand = new Random();
-			Debug.WriteLine(Spelbord.AANTAL_SPELERS);
 			byte lead = 255 / Spelbord.AANTAL_SPELERS;
 			for (int i = 0; i < colors.Length; i++)
 			{
@@ -64,7 +63,7 @@ namespace VierOpEenRij
 		{
 			vrij = false;
 			speler = huidigeSpeler;
-			this.Background = new SolidColorBrush(Cel.coloring[speler]);
+			this.Background = new SolidColorBrush(Cel.coloring[speler-1]);
 		}
 
 	}

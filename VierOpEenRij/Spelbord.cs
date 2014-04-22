@@ -34,9 +34,9 @@ namespace VierOpEenRij
 
 	public class Spelbord : Canvas
 	{
-		public const int KOLOMMEN = 7;
-		public const int RIJEN = 5;
-		public const int AANTAL_SPELERS = 1;
+		public const int KOLOMMEN = 70;
+		public const int RIJEN = 50;
+		public const int AANTAL_SPELERS = 5;
 		public const int AANTAL_OP_RIJ = 4;
 
 		public int huidigeSpeler = 0;
@@ -160,7 +160,7 @@ namespace VierOpEenRij
 		private void SpelerCycle()
 		{
 			if (huidigeSpeler + 1 > AANTAL_SPELERS)
-				huidigeSpeler = 0;
+				huidigeSpeler = 1;
 			else
 				huidigeSpeler++;
 		}
